@@ -18,7 +18,6 @@ public class ArmsComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if (!currentInteractor)
         {
             SetCurrentInteractor(other.gameObject);
@@ -31,8 +30,12 @@ public class ArmsComponent : MonoBehaviour
 
     private void SetCurrentInteractor(GameObject interactor) 
     {
+        if (!interactor.CompareTag("Interactable"))
+            return;
+
         if (currentInteractor)
             currentInteractor.GetComponent<MeshRenderer>().enabled = true;
+
         currentInteractor = interactor;
         currentInteractor.GetComponent<MeshRenderer>().enabled = false;
     }
