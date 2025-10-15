@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8182644752742838139}
   m_Layer: 0
   m_Name: Encimera
-  m_TagString: Untagged
+  m_TagString: Encimera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
