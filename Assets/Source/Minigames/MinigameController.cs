@@ -6,7 +6,7 @@ public class MinigameController : MonoBehaviour
     int minPoints = 100;
     int actualPoints;
     int maxWidth = 980;
-    float altualWidth = 1.0f;
+    float actualWidth = 1.0f;
 
     [SerializeField] GameObject canvas;
 

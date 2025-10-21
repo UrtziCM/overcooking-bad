@@ -11,10 +11,17 @@ public class GameManager : MonoBehaviour {
             if (instance == null)
             {
                 Debug.LogError("Game manager is NULL");
+                instance = new GameManager();
+                return instance;
             }
-            return instance;
+            else
+            {
+                return instance;
+            }
         }
     }
+
+    private GameManager() {}
 
     private void Awake()
     {
