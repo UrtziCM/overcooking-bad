@@ -4,12 +4,14 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private InputAction moveAction;
+    private InputAction interactAction;
     [SerializeField]
     private float SPEED = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
+        interactAction = InputSystem.actions.FindAction("Interact");
     }
 
     // Update is called once per frame

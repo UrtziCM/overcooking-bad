@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
         {
             if (instance == null)
             {
-                Debug.LogWarning("Game manager is NULL");
+                Debug.LogError("Game manager is NULL");
             }
             return instance;
         }
@@ -23,6 +23,18 @@ public class GameManager : MonoBehaviour {
 
     public GameObject currentInteractror { get; set; }
 
-    public void openMinigame() { }
+    public bool OpenMinigame()
+    {
+        return true;
+    }
 
+    public void DeactivatePlayer()
+    {
+        
+    }
+
+    public void ActivatePlayer()
+    {
+
+    }
 }
