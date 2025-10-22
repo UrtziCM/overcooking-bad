@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 983374103029743409}
   - component: {fileID: 5772588726830491212}
   - component: {fileID: 8182644752742838139}
-  m_Layer: 0
-  m_Name: Encimera
+  m_Layer: 3
+  m_Name: EncimeraBase
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
