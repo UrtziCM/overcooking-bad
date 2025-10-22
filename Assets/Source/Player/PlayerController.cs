@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private InputAction moveAction;
+    private CharacterController characterController;
+
+    private Vector2 inputVector;
     private InputAction interactAction;
     [SerializeField]
     private float SPEED = 10f;
@@ -14,8 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
-        interactAction = InputSystem.actions.FindAction("Interact");
+        characterController = GetComponent<CharacterController>();
         
         stateMachine.ChangeState(new IdleState());
     }
@@ -23,13 +24,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 inputVector = moveAction.ReadValue<Vector2>();
         Vector3 movementVector = new Vector3(inputVector.x, 0, inputVector.y);
-        if (movementVector != Vector3.zero)
-        {
-            transform.position = transform.position + (movementVector * SPEED) * Time.deltaTime;
-            transform.LookAt(transform.position + movementVector);
-            
-        }
+        characterController.Move(movementVector * SPEED * Time.deltaTime);
+    }
+    
+    public void Move(InputAction.CallbackContext context)
+    {
+        inputVector = context.ReadValue<Vector2>();
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+
     }
 }
