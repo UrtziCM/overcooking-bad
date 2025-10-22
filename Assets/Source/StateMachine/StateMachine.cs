@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public interface Istate
+public interface IState
 {
     void Enter();
     void Exit();
     void Update();
 }
 
-public class IdleState : Istate
+public class IdleState : IState
 {
     public void Enter()
     {
@@ -23,7 +23,7 @@ public class IdleState : Istate
     }
 }
 
-public class HoldState : Istate
+public class CarryingState : IState
 {
     public void Enter()
     {
@@ -35,11 +35,11 @@ public class HoldState : Istate
     }
     public void Update()
     {
-        //Hold
+        
     }
 }
 
-public class InteractState : Istate
+public class CookingState : IState
 {
     public void Enter()
     {
@@ -55,11 +55,11 @@ public class InteractState : Istate
     }
 }
 
-public class StateMachine : MonoBehaviour
+public class StateMachine
 {
-    public Istate currentState;
+    public IState currentState;
 
-    public void ChangeState(Istate state)
+    public void ChangeState(IState state)
     {
         currentState?.Exit();
         currentState = state;

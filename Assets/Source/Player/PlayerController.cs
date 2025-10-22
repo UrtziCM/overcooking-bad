@@ -7,11 +7,17 @@ public class PlayerMovement : MonoBehaviour
     private InputAction interactAction;
     [SerializeField]
     private float SPEED = 10f;
+
+    private StateMachine stateMachine = new();
+
+    private GameObject pickedItem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         interactAction = InputSystem.actions.FindAction("Interact");
+        
+        stateMachine.ChangeState(new IdleState());
     }
 
     // Update is called once per frame
