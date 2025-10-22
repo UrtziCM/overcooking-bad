@@ -1,8 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
     
     private static GameManager instance;
+    private ScoreManager scoreManager;
+    [SerializeField]
+    public List<int> scores = new List<int>();
     
     public static GameManager Instance
     {
@@ -21,7 +25,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private GameManager() {}
+    private GameManager() {
+        scoreManager = new ScoreManager(scores);
+    }
 
     private void Awake()
     {
@@ -29,6 +35,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public GameObject currentInteractror { get; set; }
+    private const int MAX_SCORE_PER_POTION = 2000;
 
     public bool OpenMinigame()
     {
@@ -44,4 +51,9 @@ public class GameManager : MonoBehaviour {
     {
 
     }
+
+    public void PotionGiven(float humourIndex) { 
+        scoreManager.AddScore((int)(MAX_SCORE_PER_POTION * humourIndex));
+    }
 }
+
