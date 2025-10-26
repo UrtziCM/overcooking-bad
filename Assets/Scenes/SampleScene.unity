@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scores: 
-  hudManager: {fileID: 0}
+  hudManager: {fileID: 1893385995}
 --- !u!4 &1893385997
 Transform:
   m_ObjectHideFlags: 0
