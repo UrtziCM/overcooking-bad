@@ -95,7 +95,14 @@ public class PlayerMovement : MonoBehaviour
                 pickedUpObject = Instantiate(((IngredienteraComponent)targetedCounter).IngredientPrefab, Vector3.down * 100, Quaternion.identity);
                 stateMachine.ChangeState(CarryingState.Instance);
             }
+            else if ((stateMachine.currentState == CarryingState.Instance))
+            {
+                Destroy(pickedUpObject);
+                pickedUpObject = null;
+                stateMachine.ChangeState(IdleState.Instance);
+            }
         }
+        
     }
 
     private void OnDrawGizmos()
