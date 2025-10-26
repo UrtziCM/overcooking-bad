@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3672420484973516186}
   - component: {fileID: 8568525312811757497}
   - component: {fileID: 3827002385997768536}
-  m_Layer: 0
+  - component: {fileID: 5694946969523993356}
+  m_Layer: 3
   m_Name: Ingrediente Rojo
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5694946969523993356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534753243190345435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8279cfd6a31999479bcb390dfe1d328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientColor: 0

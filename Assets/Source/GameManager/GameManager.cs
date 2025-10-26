@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public List<int> scores = new List<int>();
 
     private MinigameController minigameController;
+
+    public HUDManager hudManager;
     
     public static GameManager Instance
     {

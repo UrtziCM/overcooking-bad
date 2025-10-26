@@ -85,6 +85,9 @@ public class PlayerMovement : MonoBehaviour
         {
             pickedUpObject = targetedItem;
             stateMachine.ChangeState(CarryingState.Instance);
+
+            Debug.Log(GameManager.Instance.hudManager == null);
+            GameManager.Instance.hudManager.SetIngredient(targetedItem.GetComponent<IngredientComponent>().ingredientColor);
             targetedItem.transform.position = Vector3.down * 100;
         }
         else if (targetedItem.CompareTag("Counter"))
@@ -108,6 +111,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(cameraChild.transform.position, cameraChild.transform.forward * InteractDistance);
+        Gizmos.DrawLine(transform.position, transform.position + cameraChild.transform.forward * InteractDistance);
     }
 }
