@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum IngredientColor : byte
+public enum IngredientColor : byte
 {
     Red,
     Green,
