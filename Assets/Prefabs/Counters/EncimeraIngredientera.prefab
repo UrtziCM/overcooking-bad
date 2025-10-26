@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncimeraIngredientera
       objectReference: {fileID: 0}
+    - target: {fileID: 5772588726830491212, guid: a8f88c73102375047b47c4428e74bf78, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b884ac16a9245c4e80798d5df048f99, type: 2}
     - target: {fileID: 8664531202496717839, guid: a8f88c73102375047b47c4428e74bf78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -77,3 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d731db2732bd9474b85af49d6f8ec402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 1
+  RedMaterial: {fileID: 2100000, guid: cbc7de6640d7b124293361774e785c6a, type: 2}
+  GreenMaterial: {fileID: 2100000, guid: 3b884ac16a9245c4e80798d5df048f99, type: 2}
+  BlueMaterial: {fileID: 2100000, guid: ccea4fce57c50c6488f6b6928bc563fb, type: 2}
