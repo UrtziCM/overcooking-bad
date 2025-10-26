@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8182644752742838139}
   m_Layer: 3
   m_Name: EncimeraBase
-  m_TagString: Interactable
+  m_TagString: Counter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
