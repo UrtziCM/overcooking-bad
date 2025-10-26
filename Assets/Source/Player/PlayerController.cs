@@ -4,31 +4,36 @@ using UnityEngine.InputSystem.Controls;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private StateMachine stateMachine = new();
+
+
+    [Header("Input")]
     [SerializeField]
-    private InputAction interactAction; 
+    private InputAction interactAction;
     [SerializeField]
     private InputAction moveAction;
 
-    private StateMachine stateMachine = new();
-
-    private GameObject targetedItem;
-
-    [SerializeField]
-    float speed = 10.0f;
-
+    [Space(10)]
+    [Header("Interaction")]
     [SerializeField]
     private float InteractDistance = 1.5f;
-
     [SerializeField]
     private LayerMask interactLayerMask;
+    private GameObject targetedItem;
+    private GameObject pickedUpObject;
 
+
+    [Space(10)]
+    [Header("Movement")]
+    [SerializeField]
+    public GameObject cameraChild;
     private Vector2 moveDirection => moveAction.ReadValue<Vector2>();
-
+    [SerializeField]
+    float speed = 10f;
     [SerializeField]
     float sensitivity = 1f;
 
-    [SerializeField]
-    public GameObject cameraChild;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90 , 90), z: 0);
+        cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
 
         Vector3 direction = cameraChild.transform.TransformDirection(moveDirection.x, 0, moveDirection.y);
         direction.y = 0;
@@ -76,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
     public void Interact(InputAction.CallbackContext context)
     {
         Debug.Log($"Interacted with: {targetedItem}");
+        if (targetedItem.CompareTag("Ingredient"))
+        {
+            pickedUpObject = targetedItem;
+            targetedItem.transform.position = Vector3.down * 100;
+        }
     }
 
     private void OnDrawGizmos()
