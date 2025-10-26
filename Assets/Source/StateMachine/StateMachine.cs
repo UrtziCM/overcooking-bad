@@ -9,6 +9,8 @@ public interface IState
 
 public class IdleState : IState
 {
+    public static IdleState Instance = new IdleState();
+    private IdleState() { }
     public void Enter()
     {
 
@@ -25,6 +27,8 @@ public class IdleState : IState
 
 public class CarryingState : IState
 {
+    public static CarryingState Instance = new CarryingState();
+    private CarryingState() { }
     public void Enter()
     {
 
@@ -41,6 +45,8 @@ public class CarryingState : IState
 
 public class CookingState : IState
 {
+    public static CookingState Instance = new CookingState();
+    private CookingState() { }
     public void Enter()
     {
 
