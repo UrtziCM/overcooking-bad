@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 public class PlayerMovement : MonoBehaviour
 {
     private StateMachine stateMachine = new();
-
 
     [Header("Input")]
     [SerializeField]
@@ -38,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stateMachine.ChangeState(new IdleState());
+        stateMachine.ChangeState(IdleState.Instance);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -53,8 +51,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
+        if (stateMachine.currentState == CookingState.Instance)
+            return;
 
+        cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
         Vector3 direction = cameraChild.transform.TransformDirection(moveDirection.x, 0, moveDirection.y);
         direction.y = 0;
         transform.position += speed * Time.deltaTime * (direction.normalized);
@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (targetedItem.CompareTag("Ingredient"))
         {
             pickedUpObject = targetedItem;
+            stateMachine.ChangeState(CarryingState.Instance);
             targetedItem.transform.position = Vector3.down * 100;
         }
     }
