@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Space(10)]
     [Header("Movement")]
-    [SerializeField]
     public GameObject cameraChild;
     private Vector2 moveDirection => moveAction.ReadValue<Vector2>();
     [SerializeField]
