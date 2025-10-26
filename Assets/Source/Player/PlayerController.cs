@@ -82,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
         if (!targetedItem) // Targeted item is null
             return;
 
-        Debug.Log($"Interacted with: {targetedItem}");
         if (targetedItem.CompareTag("Ingredient"))
         {
             pickedUpObject = targetedItem;
