@@ -67,8 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!(Time.frameCount % 5 == 0))
             return;
-        RaycastHit raycastHit;
-        if (Physics.Raycast(cameraChild.transform.position, cameraChild.transform.forward, out raycastHit, InteractDistance, interactLayerMask))
+        if (Physics.Raycast(cameraChild.transform.position, cameraChild.transform.forward, out RaycastHit raycastHit, InteractDistance, interactLayerMask))
         {
             targetedItem = raycastHit.transform.gameObject;
         }
