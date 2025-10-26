@@ -95,9 +95,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fbfecfdeb6ab5b45811bb46697c5efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a5dfd61e-4082-491e-bf33-b8a3e742203b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 845c2a22-6214-44ae-8db9-a8232c87f774
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  InteractDistance: 1.5
+  interactLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  cameraChild: {fileID: 3821137411077398836}
   speed: 100
   sensitivity: 1
-  cameraChild: {fileID: 3821137411077398836}
 --- !u!1 &5315388802394748833
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 5315388802394748833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
