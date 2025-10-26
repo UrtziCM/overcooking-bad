@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
             pickedUpObject = targetedItem;
             stateMachine.ChangeState(CarryingState.Instance);
 
-            Debug.Log(GameManager.Instance.hudManager == null);
             GameManager.Instance.hudManager.SetIngredient(targetedItem.GetComponent<IngredientComponent>().ingredientColor);
             targetedItem.transform.position = Vector3.down * 100;
         }
