@@ -11,10 +11,16 @@ public class PlayerMovement : MonoBehaviour
 
     private StateMachine stateMachine = new();
 
-    private GameObject pickedItem;
+    private GameObject targetedItem;
 
     [SerializeField]
     float speed = 10.0f;
+
+    [SerializeField]
+    private float InteractDistance = 1.5f;
+
+    [SerializeField]
+    private LayerMask interactLayerMask;
 
     private Vector2 moveDirection => moveAction.ReadValue<Vector2>();
 
@@ -35,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
         interactAction.Enable();
         moveAction.Enable();
 
+        interactAction.performed += Interact;
+
     }
 
     // Update is called once per frame
@@ -46,10 +54,33 @@ public class PlayerMovement : MonoBehaviour
         direction.y = 0;
         transform.position += speed * Time.deltaTime * (direction.normalized);
 
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!(Time.frameCount % 5 == 0))
+            return;
+        RaycastHit raycastHit;
+        if (Physics.Raycast(cameraChild.transform.position, cameraChild.transform.forward, out raycastHit, InteractDistance, interactLayerMask))
+        {
+            targetedItem = raycastHit.transform.gameObject;
+        }
+        else
+        {
+            targetedItem = null;
+        }
     }
 
     public void Interact(InputAction.CallbackContext context)
     {
+        Debug.Log($"Interacted with: {targetedItem}");
+    }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(cameraChild.transform.position, cameraChild.transform.forward * InteractDistance);
     }
 }
