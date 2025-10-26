@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
     private ScoreManager scoreManager;
     [SerializeField]
     public List<int> scores = new List<int>();
+
+    private MinigameController minigameController;
     
     public static GameManager Instance
     {
@@ -32,14 +34,15 @@ public class GameManager : MonoBehaviour {
     private void Awake()
     {
         instance = this;
+
+        minigameController = gameObject.GetComponent<MinigameController>();
     }
 
-    public GameObject currentInteractror { get; set; }
     private const int MAX_SCORE_PER_POTION = 2000;
 
     public bool OpenMinigame()
     {
-        return true;
+        return minigameController.SpamMinigame();
     }
 
     public void DeactivatePlayer()

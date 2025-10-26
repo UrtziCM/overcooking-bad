@@ -44,4 +44,9 @@ public class MinigameController : MonoBehaviour
         RectTransform rt = image.rectTransform;
         rt.sizeDelta = new Vector2(actualPoints, rt.sizeDelta.y);
     }
+
+    public void AddPoints()
+    {
+        actualPoints += 2;
+    }
 }
