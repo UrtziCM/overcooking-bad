@@ -4,7 +4,8 @@ public enum IngredientColor : byte
 {
     Red,
     Green,
-    Blue
+    Blue,
+    None = 255
 }
 
 public class IngredienteraComponent : CounterComponent

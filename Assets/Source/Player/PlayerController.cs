@@ -103,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(pickedUpObject);
                 pickedUpObject = null;
                 stateMachine.ChangeState(IdleState.Instance);
+                GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
             }
         }
         
