@@ -79,6 +79,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext context)
     {
+        if (!targetedItem) // Targeted item is null
+            return;
+
         Debug.Log($"Interacted with: {targetedItem}");
         if (targetedItem.CompareTag("Ingredient"))
         {
