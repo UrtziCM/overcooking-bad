@@ -97,6 +97,33 @@ public class PlayerMovement : MonoBehaviour
                 pickedUpObject = Instantiate(((IngredienteraComponent)targetedCounter).IngredientPrefab, Vector3.down * 100, Quaternion.identity);
                 stateMachine.ChangeState(CarryingState.Instance);
             }
+            else if ((targetedCounter = targetedItem.GetComponent<EncimeraItemComponent>()) != null)
+            {
+                if ((targetedCounter as EncimeraItemComponent).ItemOnTop != null) // There is an item on top
+                { 
+                    if (stateMachine.currentState == IdleState.Instance) // We are not carrying items
+                    {
+                        pickedUpObject = (targetedCounter as EncimeraItemComponent).ItemOnTop;
+                        (targetedCounter as EncimeraItemComponent).ItemOnTop = null;
+                        stateMachine.ChangeState(CarryingState.Instance);
+                        GameManager.Instance.hudManager.SetIngredient(pickedUpObject.GetComponent<IngredientComponent>().ingredientColor);
+                        pickedUpObject.transform.position = Vector3.down * 100;
+                    }
+                }
+                else // No item on top
+                {
+                    if (stateMachine.currentState == CarryingState.Instance)
+                    {
+                        (targetedCounter as EncimeraItemComponent).ItemOnTop = pickedUpObject;
+                        pickedUpObject.transform.position = targetedCounter.transform.TransformPoint((targetedCounter as EncimeraItemComponent).attachPosition);
+                        pickedUpObject = null;
+                        GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
+                        stateMachine.ChangeState(IdleState.Instance);
+
+                    }
+                }
+
+            }
             else if ((stateMachine.currentState == CarryingState.Instance))
             {
                 Destroy(pickedUpObject);
@@ -105,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
             }
         }
-        
+
     }
 
     private void OnDrawGizmos()
