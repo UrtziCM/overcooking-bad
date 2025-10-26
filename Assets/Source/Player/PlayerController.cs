@@ -81,11 +81,20 @@ public class PlayerMovement : MonoBehaviour
         if (!targetedItem) // Targeted item is null
             return;
 
-        if (targetedItem.CompareTag("Ingredient"))
+        if ((stateMachine.currentState != CarryingState.Instance) && targetedItem.CompareTag("Ingredient"))
         {
             pickedUpObject = targetedItem;
             stateMachine.ChangeState(CarryingState.Instance);
             targetedItem.transform.position = Vector3.down * 100;
+        }
+        else if (targetedItem.CompareTag("Counter"))
+        {
+            CounterComponent targetedCounter;
+            if ((stateMachine.currentState != CarryingState.Instance) && (targetedCounter = targetedItem.GetComponent<IngredienteraComponent>()) != null)
+            {
+                pickedUpObject = Instantiate(((IngredienteraComponent)targetedCounter).IngredientPrefab, Vector3.down * 100, Quaternion.identity);
+                stateMachine.ChangeState(CarryingState.Instance);
+            }
         }
     }
 
