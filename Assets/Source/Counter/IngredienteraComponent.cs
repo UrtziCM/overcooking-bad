@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum IngredientColor : byte
@@ -27,6 +28,9 @@ public class IngredienteraComponent : CounterComponent
     private GameObject GreenIngredient;
     [SerializeField]
     private GameObject BlueIngredient;
+
+    [SerializeField]
+    private List<MeshRenderer> renderersToChangeColor;
 
     public GameObject IngredientPrefab
     {
@@ -65,9 +69,11 @@ public class IngredienteraComponent : CounterComponent
 
     private void ApplyMaterial()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        Material mat = IngredientMaterial;
-        renderer.sharedMaterial = mat;
+        foreach (MeshRenderer renderer in renderersToChangeColor)
+        {
+            Material mat = IngredientMaterial;
+            renderer.sharedMaterial = mat;
+        }
 
     }
 
