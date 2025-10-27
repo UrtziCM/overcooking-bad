@@ -13,4 +13,7 @@ public class CounterComponent : MonoBehaviour
     {
         
     }
+
+    public virtual void Interact(Transform player) { }
+
 }

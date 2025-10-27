@@ -20,9 +20,13 @@ public class IngredienteraComponent : CounterComponent
     [SerializeField]
     private Material BlueMaterial;
 
+    [Header("Ingredient prefabs")]
+    [SerializeField]
     private GameObject RedIngredient;
-    private GameObject BlueIngredient;
+    [SerializeField]
     private GameObject GreenIngredient;
+    [SerializeField]
+    private GameObject BlueIngredient;
 
     public GameObject IngredientPrefab
     {
@@ -77,6 +81,18 @@ public class IngredienteraComponent : CounterComponent
     void Update()
     {
 
+    }
+
+    public override void Interact(Transform player)
+    {
+        PlayerMovement playerController = player.GetComponent<PlayerMovement>();
+        StateMachine stateMachine = playerController.GetStateMachine();
+        if (stateMachine.currentState != CarryingState.Instance)
+        {
+            playerController.pickedUpObject = Instantiate(IngredientPrefab, Vector3.down * 100, Quaternion.identity);
+            GameManager.Instance.hudManager.SetIngredient(IngredientPrefab.GetComponent<IngredientComponent>().ingredientColor);
+            stateMachine.ChangeState(CarryingState.Instance);
+        }
     }
 
     private void OnValidate()

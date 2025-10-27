@@ -85,3 +85,6 @@ MonoBehaviour:
   RedMaterial: {fileID: 2100000, guid: cbc7de6640d7b124293361774e785c6a, type: 2}
   GreenMaterial: {fileID: 2100000, guid: 3b884ac16a9245c4e80798d5df048f99, type: 2}
   BlueMaterial: {fileID: 2100000, guid: ccea4fce57c50c6488f6b6928bc563fb, type: 2}
+  RedIngredient: {fileID: 5534753243190345435, guid: 52aa838090cebb647ad23023f4ab1eff, type: 3}
+  GreenIngredient: {fileID: 8130348068686654716, guid: 1ff5c67c2b6a9b5429851ecd19fa53ed, type: 3}
+  BlueIngredient: {fileID: 2978486754389890425, guid: ce0275ad3eff6f14683a7d8c0e6a8996, type: 3}

@@ -17,8 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private float InteractDistance = 1.5f;
     [SerializeField]
     private LayerMask interactLayerMask;
-    private GameObject targetedItem;
-    private GameObject pickedUpObject;
+    [HideInInspector]
+    public GameObject targetedItem;
+    [HideInInspector]
+    public GameObject pickedUpObject;
 
 
     [Space(10)]
@@ -92,44 +94,9 @@ public class PlayerMovement : MonoBehaviour
         else if (targetedItem.CompareTag("Counter"))
         {
             CounterComponent targetedCounter;
-            if ((stateMachine.currentState != CarryingState.Instance) && (targetedCounter = targetedItem.GetComponent<IngredienteraComponent>()) != null)
+            if ((targetedCounter = targetedItem.GetComponent<CounterComponent>()) != null)
             {
-                pickedUpObject = Instantiate(((IngredienteraComponent)targetedCounter).IngredientPrefab, Vector3.down * 100, Quaternion.identity);
-                stateMachine.ChangeState(CarryingState.Instance);
-            }
-            else if ((targetedCounter = targetedItem.GetComponent<EncimeraItemComponent>()) != null)
-            {
-                if ((targetedCounter as EncimeraItemComponent).ItemOnTop != null) // There is an item on top
-                { 
-                    if (stateMachine.currentState == IdleState.Instance) // We are not carrying items
-                    {
-                        pickedUpObject = (targetedCounter as EncimeraItemComponent).ItemOnTop;
-                        (targetedCounter as EncimeraItemComponent).ItemOnTop = null;
-                        stateMachine.ChangeState(CarryingState.Instance);
-                        GameManager.Instance.hudManager.SetIngredient(pickedUpObject.GetComponent<IngredientComponent>().ingredientColor);
-                        pickedUpObject.transform.position = Vector3.down * 100;
-                    }
-                }
-                else // No item on top
-                {
-                    if (stateMachine.currentState == CarryingState.Instance)
-                    {
-                        (targetedCounter as EncimeraItemComponent).ItemOnTop = pickedUpObject;
-                        pickedUpObject.transform.position = targetedCounter.transform.TransformPoint((targetedCounter as EncimeraItemComponent).attachPosition);
-                        pickedUpObject = null;
-                        GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
-                        stateMachine.ChangeState(IdleState.Instance);
-
-                    }
-                }
-
-            }
-            else if ((stateMachine.currentState == CarryingState.Instance))
-            {
-                Destroy(pickedUpObject);
-                pickedUpObject = null;
-                stateMachine.ChangeState(IdleState.Instance);
-                GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
+                targetedCounter.Interact(transform);
             }
         }
 
@@ -139,5 +106,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + cameraChild.transform.forward * InteractDistance);
+    }
+
+    public StateMachine GetStateMachine()
+    {
+        return stateMachine;
     }
 }
