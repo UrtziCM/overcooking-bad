@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncimeraItem (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5913705491459307871, guid: f692b98d89f8d324cacd2a5bdfc160d0, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6602755322775663147, guid: f692b98d89f8d324cacd2a5bdfc160d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -827,7 +831,7 @@ GameObject:
   - component: {fileID: 653874457}
   - component: {fileID: 653874456}
   m_Layer: 0
-  m_Name: Minigame
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
