@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
         
         
-        cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
 
 
     }
@@ -70,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
         Vector3 direction = cameraChild.transform.TransformDirection(moveDirection.x, 0, moveDirection.y);
         direction.y = 0;
         rigidBody.MovePosition(transform.position + speed * Time.deltaTime * (direction.normalized));
