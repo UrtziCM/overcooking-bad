@@ -25,7 +25,7 @@ public class SellpointCounterComponent : CounterComponent
             PotionComponent pickedPotionComponent = playerMovement.pickedUpObject.GetComponent<PotionComponent>();
             if (pickedPotionComponent != null)
             {
-                // GameManager.Instance.currentScore += order.OrderScore(pickedPotionComponent.PotionColour);
+                GameManager.Instance.currentScore += order.OrderScore(pickedPotionComponent.PotionColour);
             }
             Destroy(playerMovement.pickedUpObject);
             stateMachine.currentState = IdleState.Instance;

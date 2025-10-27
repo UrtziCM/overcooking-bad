@@ -56,8 +56,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stateMachine.currentState == CookingState.Instance)
-            return;
 
         
         
@@ -69,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (stateMachine.currentState == CookingState.Instance)
+            return;
+
         cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
         Vector3 direction = cameraChild.transform.TransformDirection(moveDirection.x, 0, moveDirection.y);
         direction.y = 0;

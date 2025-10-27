@@ -322,6 +322,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EncimeraItem (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4954016260929919953, guid: f692b98d89f8d324cacd2a5bdfc160d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954016260929919953, guid: f692b98d89f8d324cacd2a5bdfc160d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5913705491459307871, guid: f692b98d89f8d324cacd2a5bdfc160d0, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 0
@@ -535,7 +543,7 @@ RectTransform:
   m_GameObject: {fileID: 350440468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1547031626}
@@ -851,6 +859,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 556505771}
   image: {fileID: 350440470}
+  buttonToSpam:
+    m_Name: Button To Spam
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a2536df2-1c61-4cf2-a780-d336f10fd63a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!4 &653874457
 Transform:
   m_ObjectHideFlags: 0
@@ -992,6 +1009,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055814121}
   m_CullTransparentMesh: 1
+--- !u!1001 &1072690843
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 540648256683900640, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_Name
+      value: EncimeraCrafteo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602755322775663147, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 20fe17be74e1d324fb1e120f165d1682, type: 3}
 --- !u!1 &1197120752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1594,7 @@ GameObject:
   - component: {fileID: 1893385997}
   - component: {fileID: 1893385996}
   - component: {fileID: 1893385995}
+  - component: {fileID: 1893385998}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1557,6 +1632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scores: 
   hudManager: {fileID: 1893385995}
+  currentScore: 0
 --- !u!4 &1893385997
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,6 +1648,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1893385998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893385994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676ddaa0bb30a214d82b14ae577ded68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 556505771}
+  image: {fileID: 350440470}
+  buttonToSpam:
+    m_Name: Button To Spam
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a45fcec6-58e5-4df7-9e07-cefb9a0f687a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8964c9c0-e2fa-49d9-9d8d-ab49647bafe7
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Button To Spam
+      m_Flags: 0
+    - m_Name: 
+      m_Id: cc72257b-82bd-457e-995f-9298ba15dc20
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Button To Spam
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &2083226286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,3 +2119,4 @@ SceneRoots:
   - {fileID: 234466430}
   - {fileID: 1685151198}
   - {fileID: 269368731}
+  - {fileID: 1072690843}

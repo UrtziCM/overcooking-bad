@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
     private MinigameController minigameController;
 
     public HUDManager hudManager;
-    
+    public int currentScore;
+
     public static GameManager Instance
     {
         get
@@ -38,26 +39,13 @@ public class GameManager : MonoBehaviour {
         instance = this;
 
         minigameController = gameObject.GetComponent<MinigameController>();
-
-        //Limit the frame rate
-        QualitySettings.vSyncCount = 2;
     }
 
     private const int MAX_SCORE_PER_POTION = 2000;
 
-    public bool OpenMinigame()
+    public void OpenMinigame(Transform player, CraftingCounterComponent craftingCounterComponent)
     {
-        return minigameController.SpamMinigame();
-    }
-
-    public void DeactivatePlayer()
-    {
-        
-    }
-
-    public void ActivatePlayer()
-    {
-
+        minigameController.SpamMinigame(player, craftingCounterComponent);
     }
 
     public void PotionGiven(float humourIndex) { 
