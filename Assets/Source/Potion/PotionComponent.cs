@@ -2,9 +2,9 @@ using UnityEngine;
 
 public enum PotionColour : byte // RGB Mix
 {
-    Purple,     // R B
-    Brown,      // RG
-    Teal,       //  GB
+    Purple = IngredientColor.Red + IngredientColor.Blue, // R B
+    Brown = IngredientColor.Red + IngredientColor.Green, // RG
+    Teal = IngredientColor.Green + IngredientColor.Blue, //  GB
 }
 
 public class PotionComponent : MonoBehaviour
@@ -22,7 +22,7 @@ public class PotionComponent : MonoBehaviour
 
     private void OnValidate()
     {
-        
+
         //switch (PotionColour)
         //{
         //    case PotionColour.Purple:
