@@ -9,8 +9,7 @@ public class MinigameController : MonoBehaviour
 {
     int minPoints = 100;
     int actualPoints = 0;
-    int maxWidth = 980;
-    float actualWidth = 1.0f;
+
 
     [SerializeField]
     public GameObject canvas;
@@ -26,16 +25,6 @@ public class MinigameController : MonoBehaviour
         buttonToSpam.Enable();
 
         buttonToSpam.performed += _addPointsOnButtonSpam => AddPoints();
-    }
-
-    private void FixedUpdate()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void SpamMinigame(Transform player, CraftingCounterComponent craftingCounterComponent)
@@ -62,10 +51,8 @@ public class MinigameController : MonoBehaviour
     {
         if ( canvas.activeInHierarchy)
         {
-            Debug.Log(actualPoints);
             actualPoints += 10;
             ResizeImage();
-
         }
     }
 
