@@ -54,9 +54,9 @@ public class EncimeraItemComponent : CounterComponent
     private void OnDrawGizmos()
     {
         if (ItemOnTop != null)
-            Gizmos.color = Color.yellow;
-        else
             Gizmos.color = Color.red;
+        else
+            Gizmos.color = Color.green;
 
         Gizmos.DrawWireSphere(transform.position + attachPosition, 0.5f);
     }
