@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float sensitivity = 1f;
 
+    private Rigidbody rigidBody;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
         interactAction.performed += Interact;
 
+        rigidBody = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -55,17 +59,21 @@ public class PlayerMovement : MonoBehaviour
         if (stateMachine.currentState == CookingState.Instance)
             return;
 
+        
+        
         cameraChild.transform.eulerAngles += sensitivity * new Vector3(x: -Input.GetAxis("Mouse Y"), y: Mathf.Clamp(Input.GetAxis("Mouse X"), -90, 90), z: 0);
-        Vector3 direction = cameraChild.transform.TransformDirection(moveDirection.x, 0, moveDirection.y);
-        direction.y = 0;
-        transform.position += speed * Time.deltaTime * (direction.normalized);
-
 
 
     }
 
+    
+
     private void FixedUpdate()
     {
+        Vector3 direction = cameraChild.transform.TransformDirection(moveDirection.x, 0, moveDirection.y);
+        direction.y = 0;
+        rigidBody.MovePosition(transform.position + speed * Time.deltaTime * (direction.normalized));
+        
         if (!(Time.frameCount % 5 == 0))
             return;
         if (Physics.Raycast(cameraChild.transform.position, cameraChild.transform.forward, out RaycastHit raycastHit, InteractDistance, interactLayerMask))
@@ -76,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             targetedItem = null;
         }
+
     }
 
     public void Interact(InputAction.CallbackContext context)
