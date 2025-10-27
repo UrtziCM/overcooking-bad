@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPosition: {x: 0, y: 1, z: 0}
-  potion: {fileID: 919132149155446097, guid: a3b2ecf5b6236df43b65c96d59abfbea, type: 3}
+  potion: {fileID: 3091372390450043614, guid: 3d38a50637b02704798b01d9b60ebb2f, type: 3}
 --- !u!4 &6602755322775663147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8664531202496717839, guid: a8f88c73102375047b47c4428e74bf78, type: 3}
