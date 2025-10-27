@@ -24,16 +24,18 @@ public class CraftingCounterComponent : EncimeraItemComponent
 
         if (playerStateMachine.currentState == IdleState.Instance)
         {
+            if (ItemOnTop != null)
+            {
+                base.Interact(player);
+                return;
+            }
             playerStateMachine.currentState = CookingState.Instance;
             GameManager.Instance.OpenMinigame(player, this);
-            if (ItemOnTop != null)
-                base.Interact(player);
         }
 
     }
     public void MinigameFinished()
     {
-        Instantiate(potion, transform.TransformPoint(attachPosition), Quaternion.identity);
-        Debug.Log("Finished");
+        ItemOnTop = Instantiate(potion, transform.TransformPoint(attachPosition), Quaternion.identity);
     }
 }
