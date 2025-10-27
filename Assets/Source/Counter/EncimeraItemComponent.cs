@@ -33,7 +33,6 @@ public class EncimeraItemComponent : CounterComponent
 
                 playerController.pickedUpObject.transform.position = Vector3.down * 100;
                 GameManager.Instance.hudManager.SetIngredient(playerController.pickedUpObject.GetComponent<IngredientComponent>().ingredientColor);
-                Debug.Log(ItemOnTop);
             }
         }
         else // No item on top

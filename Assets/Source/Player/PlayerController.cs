@@ -83,15 +83,15 @@ public class PlayerMovement : MonoBehaviour
         if (!targetedItem) // Targeted item is null
             return;
 
-        if ((stateMachine.currentState != CarryingState.Instance) && targetedItem.CompareTag("Ingredient"))
-        {
-            pickedUpObject = targetedItem;
-            stateMachine.ChangeState(CarryingState.Instance);
+        //if ((stateMachine.currentState != CarryingState.Instance) && targetedItem.CompareTag("Ingredient"))
+        //{
+        //    pickedUpObject = targetedItem;
+        //    stateMachine.ChangeState(CarryingState.Instance);
 
-            GameManager.Instance.hudManager.SetIngredient(targetedItem.GetComponent<IngredientComponent>().ingredientColor);
-            targetedItem.transform.position = Vector3.down * 100;
-        }
-        else if (targetedItem.CompareTag("Counter"))
+        //    GameManager.Instance.hudManager.SetIngredient(targetedItem.GetComponent<IngredientComponent>().ingredientColor);
+        //    targetedItem.transform.position = Vector3.down * 100;
+        //}
+        if (targetedItem.CompareTag("Counter"))
         {
             CounterComponent targetedCounter;
             if ((targetedCounter = targetedItem.GetComponent<CounterComponent>()) != null)
