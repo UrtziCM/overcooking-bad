@@ -1433,6 +1433,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1784969639455388782, guid: 06243dd03b9634843b7b8fef9bece846, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784969639455388782, guid: 06243dd03b9634843b7b8fef9bece846, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784969639455388782, guid: 06243dd03b9634843b7b8fef9bece846, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784969639455388782, guid: 06243dd03b9634843b7b8fef9bece846, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
       objectReference: {fileID: 0}
@@ -1764,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 560541481}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: sensitivity
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: InteractDistance
