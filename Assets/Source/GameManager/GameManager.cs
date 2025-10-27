@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour {
         instance = this;
 
         minigameController = gameObject.GetComponent<MinigameController>();
+
+        //Limit the frame rate
+        QualitySettings.vSyncCount = 2;
     }
 
     private const int MAX_SCORE_PER_POTION = 2000;
