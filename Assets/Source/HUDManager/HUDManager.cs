@@ -14,30 +14,56 @@ public class HUDManager : MonoBehaviour
     private Sprite BlueIngredientIcon;
     [SerializeField]
     private Sprite GreenIngredientIcon;
+    [SerializeField]
+    private Sprite PurplePotion;
+    [SerializeField]
+    private Sprite BrownPotion;
+    [SerializeField]
+    private Sprite TealPotion;
 
+    private Image inventoryImage;
 
-    public void SetIngredient(IngredientColor ingredientColor)
+    public void SetHUDInventoryIcon(IngredientColor ingredientColor)
     {
         switch (ingredientColor)
         {
             case IngredientColor.Red:
-                inventoryGameObject.GetComponent<Image>().sprite = RedIngredientIcon;
+                inventoryImage.sprite = RedIngredientIcon;
                 break;
             case IngredientColor.Green:
-                inventoryGameObject.GetComponent<Image>().sprite = GreenIngredientIcon;
+                inventoryImage.sprite = GreenIngredientIcon;
                 break;
             case IngredientColor.Blue:
-                inventoryGameObject.GetComponent<Image>().sprite= BlueIngredientIcon;
+                inventoryImage.sprite = BlueIngredientIcon;
                 break;
             default:
-                inventoryGameObject.GetComponent<Image>().sprite = null;
+                inventoryImage.sprite = null;
+                break;
+        }
+    }
+
+    public void SetHUDInventoryIcon(PotionColour potionColour)
+    {
+        switch (potionColour)
+        {
+            case PotionColour.Purple:
+                inventoryImage.sprite = PurplePotion;
+                break;
+            case PotionColour.Brown:
+                inventoryImage.sprite = BrownPotion;
+                break;
+            case PotionColour.Teal:
+                inventoryImage.sprite = TealPotion;
+                break;
+            default:
+                inventoryImage.sprite = null;
                 break;
         }
     }
 
     void Start()
     {
-
+        inventoryImage = inventoryGameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame

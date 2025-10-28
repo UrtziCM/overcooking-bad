@@ -3,7 +3,7 @@ using UnityEngine;
 public class Order
 {
     private const float MAX_SCORE_ON_CORRECT_ORDER = 2000;
-    PotionColour targetPotionColour;
+    public PotionColour targetPotionColour;
     public Order(PotionColour targetPotion)
     {
         this.targetPotionColour = targetPotion;

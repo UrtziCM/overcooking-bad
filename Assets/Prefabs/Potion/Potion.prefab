@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 626014993a11c9041b047ffa1363ea56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PotionColour: 0
+  PotionColour: 2
+  potionModel: {fileID: 7108818432891978286}
   PurpleMaterial: {fileID: 2100000, guid: 5f1b88ba6c0b2fb46ac8d0050a993a4e, type: 2}
   BrownMaterial: {fileID: 2100000, guid: 9ff5a65a22dd9334d83b2678a7accde0, type: 2}
   TealMaterial: {fileID: 2100000, guid: 02d5eafb0828b7c428038ae22ede6e53, type: 2}
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PotionColour: 0
+  potionModel: {fileID: 0}
   PurpleMaterial: {fileID: 0}
   BrownMaterial: {fileID: 0}
   TealMaterial: {fileID: 0}

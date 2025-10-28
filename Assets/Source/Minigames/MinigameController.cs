@@ -40,6 +40,7 @@ public class MinigameController : MonoBehaviour
         craftingCounterComponent.MinigameFinished();
         canvas.SetActive(false);
         actualPoints = 0;
+        ResizeImage();
     }
 
     private void ResizeImage()

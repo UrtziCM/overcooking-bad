@@ -3,9 +3,9 @@ using UnityEngine;
 
 public enum IngredientColor : byte
 {
-    Red,
-    Green,
-    Blue,
+    Red = 0,
+    Green = 1,
+    Blue = 2,
     None = 255
 }
 
@@ -96,7 +96,7 @@ public class IngredienteraComponent : CounterComponent
         if (stateMachine.currentState != CarryingState.Instance)
         {
             playerController.pickedUpObject = Instantiate(IngredientPrefab, Vector3.down * 100, Quaternion.identity);
-            GameManager.Instance.hudManager.SetIngredient(IngredientPrefab.GetComponent<IngredientComponent>().ingredientColor);
+            GameManager.Instance.hudManager.SetHUDInventoryIcon(IngredientPrefab.GetComponent<IngredientComponent>().ingredientColor);
             stateMachine.ChangeState(CarryingState.Instance);
         }
     }

@@ -23,7 +23,7 @@ public class TrashCounterComponent : CounterComponent
             Destroy(playerController.pickedUpObject);
             playerController.pickedUpObject = null;
             stateMachine.ChangeState(IdleState.Instance);
-            GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
+            GameManager.Instance.hudManager.SetHUDInventoryIcon(IngredientColor.None);
         }
     }
 }

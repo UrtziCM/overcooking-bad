@@ -32,7 +32,11 @@ public class EncimeraItemComponent : CounterComponent
                 ItemOnTop = null;
 
                 playerController.pickedUpObject.transform.position = Vector3.down * 100;
-                //GameManager.Instance.hudManager.SetIngredient(playerController.pickedUpObject.GetComponent<IngredientComponent>().ingredientColor);
+                IngredientComponent pickedIngredient = playerController.pickedUpObject.GetComponent<IngredientComponent>();
+                if (pickedIngredient != null)
+                    GameManager.Instance.hudManager.SetHUDInventoryIcon(pickedIngredient.ingredientColor);
+                else
+                    GameManager.Instance.hudManager.SetHUDInventoryIcon(playerController.pickedUpObject.GetComponent<PotionComponent>().PotionColour);
             }
         }
         else // No item on top
@@ -43,7 +47,7 @@ public class EncimeraItemComponent : CounterComponent
                 playerController.pickedUpObject.transform.position = transform.TransformPoint(attachPosition);
                 playerController.pickedUpObject = null;
 
-                GameManager.Instance.hudManager.SetIngredient(IngredientColor.None);
+                GameManager.Instance.hudManager.SetHUDInventoryIcon(IngredientColor.None);
                 playerStatemachine.ChangeState(IdleState.Instance);
 
             }
