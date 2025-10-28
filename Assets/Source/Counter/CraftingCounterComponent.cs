@@ -48,11 +48,17 @@ public class CraftingCounterComponent : EncimeraItemComponent
     }
     public void MinigameFinished()
     {
-        IngredientColor leftIngredientColor = itemOnTopLeft.GetComponent<IngredientComponent>().ingredientColor;
-        IngredientColor rightIngredientColor = itemOnTopRight.GetComponent<IngredientComponent>().ingredientColor;
+        IngredientComponent leftIngredientComponent = itemOnTopLeft.GetComponent<IngredientComponent>();
+        IngredientComponent rightIngredientComponent = itemOnTopRight.GetComponent<IngredientComponent>();
 
         ItemOnTop = Instantiate(potion, transform.TransformPoint(attachPosition), Quaternion.identity);
-        ItemOnTop.GetComponent<PotionComponent>().PotionColour = (PotionColour)((byte)leftIngredientColor + (byte)rightIngredientColor);
+        if (leftIngredientComponent != null && rightIngredientComponent != null)
+        {
+            ItemOnTop.GetComponent<PotionComponent>().PotionColour = (PotionColour)((byte)leftIngredientComponent.ingredientColor + (byte)rightIngredientComponent.ingredientColor);
+        }
+        else {
+            ItemOnTop.GetComponent<PotionComponent>().PotionColour = PotionColour.Black;
+        }
 
         Destroy(itemOnTopRight);
         Destroy(itemOnTopLeft); 

@@ -2792,6 +2792,7 @@ MonoBehaviour:
   PurplePotion: {fileID: 21300000, guid: 4ba19b57dc0cf734c9e286c96111cbfb, type: 3}
   BrownPotion: {fileID: 21300000, guid: 92f24dc44878b2b41bb319dc06b6ad6e, type: 3}
   TealPotion: {fileID: 21300000, guid: 2a0e9f0ee4375ff4bb6c44751ccd6350, type: 3}
+  BlackPotion: {fileID: 21300000, guid: 2dc496c4bc1d54f439d5dee663b8aaba, type: 3}
 --- !u!114 &898633157
 MonoBehaviour:
   m_ObjectHideFlags: 0

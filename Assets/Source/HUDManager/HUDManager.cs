@@ -20,6 +20,8 @@ public class HUDManager : MonoBehaviour
     private Sprite BrownPotion;
     [SerializeField]
     private Sprite TealPotion;
+    [SerializeField]
+    private Sprite BlackPotion;
 
     private Image inventoryImage;
 
@@ -54,6 +56,9 @@ public class HUDManager : MonoBehaviour
                 break;
             case PotionColour.Teal:
                 inventoryImage.sprite = TealPotion;
+                break;
+            case PotionColour.Black:
+                inventoryImage.sprite = BlackPotion;
                 break;
             default:
                 inventoryImage.sprite = null;

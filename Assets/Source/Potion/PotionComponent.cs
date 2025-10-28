@@ -5,13 +5,13 @@ public enum PotionColour : byte // RGB Mix
     Purple = IngredientColor.Red + IngredientColor.Blue, // R B
     Brown = IngredientColor.Red + IngredientColor.Green, // RG
     Teal = IngredientColor.Green + IngredientColor.Blue, //  GB
+    Black = 255
 }
 
 public class PotionComponent : MonoBehaviour
 {
     public PotionColour PotionColour = PotionColour.Purple;
-    [SerializeField]
-    private GameObject potionModel;
+    private MeshRenderer potionMeshRenderer => transform.GetChild(0).GetComponent<MeshRenderer>();
     [Header("Materials")]
     [SerializeField]
     private Material PurpleMaterial;
@@ -19,6 +19,8 @@ public class PotionComponent : MonoBehaviour
     private Material BrownMaterial;
     [SerializeField]
     private Material TealMaterial;
+    [SerializeField]
+    private Material BlackMaterial;
 
     private void OnValidate()
     {
@@ -42,13 +44,17 @@ public class PotionComponent : MonoBehaviour
         switch (PotionColour)
         {
             case PotionColour.Purple:
-                potionModel.GetComponent<MeshRenderer>().material = PurpleMaterial;
+                potionMeshRenderer.material = PurpleMaterial;
                 break;
             case PotionColour.Brown:
-                potionModel.GetComponent<MeshRenderer>().material = BrownMaterial;
+                potionMeshRenderer.material = BrownMaterial;
                 break;
             case PotionColour.Teal:
-                potionModel.GetComponent<MeshRenderer>().material = TealMaterial;
+                potionMeshRenderer.material = TealMaterial;
+                break;
+            default:
+                potionMeshRenderer.material = BlackMaterial;
+                PotionColour = PotionColour.Black;
                 break;
 
         }
