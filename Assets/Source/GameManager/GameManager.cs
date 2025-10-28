@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
     public HUDManager hudManager;
     public int currentScore;
 
+    [SerializeField]
+    public int maxFPS = 60;
+
     public static GameManager Instance
     {
         get
@@ -39,6 +42,9 @@ public class GameManager : MonoBehaviour {
         instance = this;
 
         minigameController = gameObject.GetComponent<MinigameController>();
+
+        QualitySettings.vSyncCount = 2;
+        Application.targetFrameRate = maxFPS;
     }
 
     private const int MAX_SCORE_PER_POTION = 2000;
