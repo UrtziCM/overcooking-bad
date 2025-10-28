@@ -18,7 +18,7 @@ public class SellpointCounterComponent : CounterComponent
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetOrder(new Order(PotionColour.Purple));
+        SetOrder(OrderFactory.GenerateRandomOrder());
     }
 
     // Update is called once per frame
