@@ -10,6 +10,6 @@ public class OrderFactory
 
     public static Order GenerateRandomOrder()
     {
-        return new Order(PotionColours[Random.Range(0, 2)]);
+        return new Order(PotionColours[Random.Range(0, 3)]);
     }
 }

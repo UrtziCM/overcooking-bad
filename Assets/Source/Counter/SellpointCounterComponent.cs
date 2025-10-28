@@ -43,6 +43,7 @@ public class SellpointCounterComponent : CounterComponent
             GameManager.Instance.hudManager.SetHUDInventoryIcon(IngredientColor.None);
             stateMachine.currentState = IdleState.Instance;
             RemoveOrder();
+            SetOrder(OrderFactory.GenerateRandomOrder());
             
         }
 
