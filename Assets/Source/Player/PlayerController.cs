@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private InputAction interactAction;
     [SerializeField]
     private InputAction moveAction;
+    [SerializeField]
+    private InputAction exitAction;
 
     [Space(10)]
     [Header("Interaction")]
@@ -46,8 +48,11 @@ public class PlayerMovement : MonoBehaviour
 
         interactAction.Enable();
         moveAction.Enable();
+        exitAction.Enable();
 
         interactAction.performed += Interact;
+
+        exitAction.performed += Exit;
 
         rigidBody = GetComponent<Rigidbody>();
 
@@ -110,6 +115,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+    }
+
+    public void Exit(InputAction.CallbackContext context)
+    {
+        Application.Quit();
     }
 
     private void OnDrawGizmos()

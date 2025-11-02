@@ -4875,6 +4875,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
+      propertyPath: exitAction.m_Name
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: moveAction.m_Name
       value: Move
       objectReference: {fileID: 0}
@@ -4891,12 +4895,20 @@ PrefabInstance:
       value: Vector2
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
+      propertyPath: exitAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: moveAction.m_SingletonActionBindings.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: interactAction.m_SingletonActionBindings.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
+      propertyPath: exitAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 01c396eb-1beb-4ff5-9eb1-5b212d3f27e1
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: moveAction.m_SingletonActionBindings.Array.data[0].m_Id
@@ -4921,6 +4933,10 @@ PrefabInstance:
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: moveAction.m_SingletonActionBindings.Array.data[5].m_Id
       value: 339f84a0-61d8-4b52-b744-ab3d9c6d85af
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
+      propertyPath: exitAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/escape
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: moveAction.m_SingletonActionBindings.Array.data[0].m_Path
@@ -4985,6 +5001,10 @@ PrefabInstance:
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: moveAction.m_SingletonActionBindings.Array.data[5].m_Flags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
+      propertyPath: exitAction.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 2349634213877715205, guid: 8c0ef592a42979e46bc55597e72dfbb3, type: 3}
       propertyPath: interactAction.m_SingletonActionBindings.Array.data[0].m_Id
