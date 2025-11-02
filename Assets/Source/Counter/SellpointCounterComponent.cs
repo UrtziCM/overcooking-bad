@@ -38,6 +38,7 @@ public class SellpointCounterComponent : CounterComponent
             if (pickedPotionComponent != null && order.targetPotionColour == pickedPotionComponent.PotionColour)
             {
                 GameManager.Instance.currentScore += order.OrderScore(pickedPotionComponent.PotionColour);
+                GameManager.Instance.hudManager.SetHUDScore(GameManager.Instance.currentScore);
             }
             Destroy(playerMovement.pickedUpObject);
             GameManager.Instance.hudManager.SetHUDInventoryIcon(IngredientColor.None);

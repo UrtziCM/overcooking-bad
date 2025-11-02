@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,8 @@ public class HUDManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject inventoryGameObject;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
 
     [Header("Resources")]
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,6 +67,11 @@ public class HUDManager : MonoBehaviour
                 inventoryImage.sprite = null;
                 break;
         }
+    }
+
+    public void SetHUDScore(int score)
+    {
+        scoreText.text = "Score: " + score.ToString();
     }
 
     void Start()
